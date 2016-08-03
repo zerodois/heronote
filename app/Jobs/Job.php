@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs;
+namespace heronote\Jobs;
 
 use Illuminate\Bus\Queueable;
 

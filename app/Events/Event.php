@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace heronote\Events;
 
 abstract class Event
 {

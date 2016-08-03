@@ -1,0 +1,32 @@
+/*
+* @Author: felipelopesrita
+* @Date:   2016-08-02 16:40:00
+* @Last Modified by:   felipelopesrita
+* @Last Modified time: 2016-08-02 16:40:00
+*/
+::-moz-selection { background-color: #CF3E43; color: white; }
+::selection { background-color: #CF3E43; color: white; }
+
+a {
+	cursor: pointer
+}
+[class^="link-"], [class*=" link-"] {
+	color: #333;
+	cursor: pointer;
+}
+[class^="link-"]:hover, [class*=" link-"]:hover {
+	text-decoration: none;
+}
+.red-text, .link-red:hover {
+	color: #CF3E43;
+}
+.white-text {
+	color: white;
+}
+.red {
+	background-color: #CF3E43;
+}
+
+.modal-backdrop {
+  background-color: white;
+}

@@ -12,5 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
 });
+
+Route::post('/api/save', 'NoteController@save');
+
+Route::get('/{route}', 'NoteController@listen')->where('route', '.*');
+
+

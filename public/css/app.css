@@ -1,0 +1,113 @@
+/*
+* @Author: felipelopesrita
+* @Date:   2016-08-02 02:16:46
+* @Last Modified by:   felipelopesrita
+* @Last Modified time: 2016-08-02 02:16:46
+*/
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+	position: absolute;
+	top: 5px;
+	right: 10px;
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+	color: #333;
+	-webkit-transition: all .2s linear;
+	   -moz-transition: all .2s linear;
+	    -ms-transition: all .2s linear;
+	     -o-transition: all .2s linear;
+	        transition: all .2s linear;
+}
+.logo .wait, .logo span {
+	display: block;
+	float: left;
+	margin-top: 7px;
+	font-size: 20px;
+}
+.logo span {
+	margin-top: 4px;
+	margin-right: 5px;
+}
+.logo:hover, .logo:active, .logo:focus {
+	opacity: 1;
+}
+.logo a, .logo a:hover, .logo a:active, .logo a:focus 
+{
+	font-size: 2em;
+	color: #333;
+	text-decoration: none;
+}
+.top-buffer {
+	margin-top: 5px;
+}
+.note {
+	resize: none;
+	border: 0;
+	margin:auto;
+	width: 98%;
+	height: 98%;
+	padding: 0 10px;
+	outline: none;
+}
+.note-subfile {
+	width: 80%;
+}
+.subfiles {
+	background-color: rgba(255, 255, 255, 0);
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+	width: 100%;
+	padding: 20px 0;
+  //display: flex;
+  align-items: center;
+	font-family: 'Open Sans', sans-serif;
+	overflow: hidden;
+	-webkit-box-shadow: 1px 0px 20px -4px #ccc;
+	-moz-box-shadow: 1px 0px 20px -4px #ccc;
+	box-shadow: 1px 0px 20px -4px #ccc;	
+}
+.window, .modal-content {
+	border: thin solid #eee;
+	padding: 20px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0px 0px 35px -5px #ccc;
+	-moz-box-shadow: 0px 0px 35px -5px #ccc;
+	box-shadow: 0px 0px 35px -5px #ccc;
+}
+.subfiles .header {
+	width: 100%;
+	margin: 0;
+	padding: 10px 5px;
+	overflow: hidden;
+	text-align: center;
+}
+.subfiles i {
+	display: block;
+	font-size: 3em;
+	line-height: 50px;
+}
+.subfiles h4 {
+	display: block;
+	margin-left: 5px;
+	font-weight: bold;
+}
+.subfiles a {
+	display: block;
+	cursor: pointer;
+	padding: 15px 20px;
+	font-weight: bold;
+	color: #333;
+}

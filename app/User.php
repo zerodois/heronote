@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace heronote;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 

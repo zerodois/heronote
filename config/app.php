@@ -153,10 +153,10 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        heronote\Providers\AppServiceProvider::class,
+        heronote\Providers\AuthServiceProvider::class,
+        heronote\Providers\EventServiceProvider::class,
+        heronote\Providers\RouteServiceProvider::class,
 
     ],
 

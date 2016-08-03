@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace heronote\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
