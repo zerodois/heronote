@@ -6,7 +6,7 @@ use Storage;
 
 class FileController extends Controller
 {
-	public static $disk = 'public';
+	public static $disk = 'dropbox';
 	public static $ext 	= '.txt';
 
 	public static function getNote( $path ) {

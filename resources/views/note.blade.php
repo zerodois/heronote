@@ -14,7 +14,9 @@
 	<input type="hidden" name="_token" id="_token" value="{{{ csrf_token() }}}">
 	<div class="logo">
 		<i ng-show="Note.wait" class="fa fa-circle-o-notch fa-spin fa-3x fa-fw wait"></i>
-		<span class="link-red" data-toggle="modal" data-target=".subfiles"><i class="fa fa-folder-open" aria-hidden="true"></i></span>
+		@if( count($data['subnotes']) )
+			<span class="link-red" data-toggle="modal" data-target=".subfiles"><i class="fa fa-folder-open" aria-hidden="true"></i></span>
+		@endif
 		<a href="/">
 			<i class="icon-heronote"></i>			
 		</a>

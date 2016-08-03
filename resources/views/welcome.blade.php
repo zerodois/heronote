@@ -56,7 +56,7 @@
     <div class="container">
         <div class="content">
             <i class="icon-heronote title"></i>
-            <span>Heronote é uma ferramenta para guardar informações, realizar anotações e qualquer outra coisa que queira fazer <i class="fa fa-thumbs-up" aria-hidden="true"></i></span>
+            <span>Heronote é uma ferramenta para guardar informações, realizar anotações e qualquer outra coisa que queira fazer <i class="fa fa-smile-o" aria-hidden="true"></i></span>
             <span>Para utilizar, é só especificar o caminho em que deseja salvar a informação. Como por exemplo <code>{{{ url('/') }}}/exemplo</code>. Depois é só escrever o que quiser, e tudo já está salvo <i class="fa fa-heart red-text" aria-hidden="true"></i>
             </span>
             <span class="dica">

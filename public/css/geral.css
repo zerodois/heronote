@@ -20,13 +20,18 @@ a {
 .red-text, .link-red:hover {
 	color: #CF3E43;
 }
+.green-text, .link-green:hover {
+	color: #1d9d74;
+}
 .white-text {
 	color: white;
 }
 .red {
 	background-color: #CF3E43;
 }
-
+.green {
+	background-color: #1d9d74;
+}
 .modal-backdrop {
   background-color: white;
 }
