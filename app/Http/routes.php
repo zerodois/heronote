@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-  return view('welcome');
-});
+Route::get('/', 'RequestController@welcome');
+
+Route::get('/facebook/callback', 'FacebookController@login');
 
 Route::post('/api/save', 'NoteController@save');
 

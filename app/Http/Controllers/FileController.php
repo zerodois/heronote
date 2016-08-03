@@ -17,9 +17,23 @@ class FileController extends Controller
 		return $disk->get( $path );
 	}
 
+	public static function getPrivateNote( $email, $path ) {
+		$path = $email.'/'.$path.FileController::$ext;
+		$disk = Storage::disk( FileController::$disk );
+		if( !$disk->exists( $path ) )
+			return '';
+		return $disk->get( $path );
+	}
+
 	public static function saveNote( $path, $data ) {
 		$path .= FileController::$ext;
 		$disk  = Storage::disk( FileController::$disk );
+		$disk->put( $path, $data );
+	}
+
+	public static function savePrivateNote( $email, $path, $data ) {
+		$path = $email.'/'.$path.FileController::$ext;
+		$disk = Storage::disk( FileController::$disk );
 		$disk->put( $path, $data );
 	}
 
@@ -31,6 +45,20 @@ class FileController extends Controller
 		for( $i=0; $i<$cont; $i++ ) {
 			$files[ $i ] 				= str_replace( FileController::$ext, '', $files[ $i ] );
 			$resp[ $i ]['uri']  = $files[ $i ];
+			$resp[ $i ]['name'] = str_replace( $path.'/', '', $files[ $i ] );
+		}
+		return $resp;
+	}
+
+	public static function getPrivateSubNotes( $email, $path ) {
+		$path  = $email.'/'.$path;
+		$disk  = Storage::disk( FileController::$disk );
+		$files = $disk->files( $path );
+		$cont  = count( $files );
+		$resp  = [];
+		for( $i=0; $i<$cont; $i++ ) {
+			$files[ $i ] 				= str_replace( FileController::$ext, '', $files[ $i ] );
+			$resp[ $i ]['uri']	= str_replace( $email.'/', '', $files[ $i ] );
 			$resp[ $i ]['name'] = str_replace( $path.'/', '', $files[ $i ] );
 		}
 		return $resp;

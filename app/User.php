@@ -3,16 +3,27 @@
 namespace heronote;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use SammyK\LaravelFacebookSdk\SyncableGraphNodeTrait;
 
 class User extends Authenticatable
 {
+    use SyncableGraphNodeTrait;
+
+    protected static $graph_node_field_aliases = [
+        'id' => 'facebook_id',
+        'name' => 'name',
+        'email' => 'email',
+    ];
+
+    protected static $graph_node_fillable_fields = ['facebook_id', 'name', 'email'];
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'id',
     ];
 
     /**
@@ -23,4 +34,5 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
 }

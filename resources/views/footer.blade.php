@@ -5,7 +5,14 @@
 		position: absolute;
 		bottom: 0;
 		left: 0;
-		padding: 5px 15px;
+		padding: 5px 0;
+	}
+	footer section {
+		padding: 0 15px;
+		font-size: 0.9em;
+	}
+	footer section a {
+		text-decoration: none;
 	}
 	footer a:not(:hover) {
 		color: #999 !important;		
@@ -15,6 +22,8 @@
 	}
 </style>
 <footer>
-	<span>2016, Heronote©</span>
-	<span class="dev">Desenvolvido por <a href="https://github.com/felipelopesrita" class="link-red">mim <i class="icon-face"></i></a></span>
+	<section>
+		<span>2016, Heronote©</span>
+		<span class="dev">Desenvolvido por <a href="https://github.com/felipelopesrita" class="link-red">mim <i class="icon-face"></i></a></span>
+	</section>
 </footer>

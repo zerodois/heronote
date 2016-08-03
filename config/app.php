@@ -158,7 +158,7 @@ return [
         heronote\Providers\EventServiceProvider::class,
         heronote\Providers\RouteServiceProvider::class,
         heronote\Providers\DropboxServiceProvider::class,
-
+        SammyK\LaravelFacebookSdk\LaravelFacebookSdkServiceProvider::class,
     ],
 
     /*
