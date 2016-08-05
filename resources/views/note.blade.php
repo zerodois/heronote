@@ -10,17 +10,31 @@
   <link rel="stylesheet" href="/css/geral.css">
 </head>
 <body ng-controller="NoteController as Note">
+	<nav class="navbar navbar-default navbar-static-top red">
+	  <div class="container">
+	  	<div class="row">
+		    <div class="col-lg-10">
+					<i ng-show="Note.wait" class="fa fa-circle-o-notch fa-spin fa-fw wait white-text"></i>
+					<a href="/" class="white-text link-white ghost">
+						<i class="icon-heronote"></i>			
+					</a>
+				</div>
+				<div class="col-lg-2">
+					@if( count($data['subnotes']) )
+						<span class="link-white white-text ghost" data-toggle="modal" data-target=".subfiles"><i class="fa fa-folder-open" aria-hidden="true"></i></span>
+					@endif
+					@if( $data['logged'] )
+						&nbsp;<a href="/logout" class="white-text link-white ghost"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+					@endif
+				</div>
+	  	</div>
+	  </div>
+	</nav>
 	<input type="hidden" name="_uri" id="_uri" value="{{ $data['uri'] }}">
 	<input type="hidden" name="_token" id="_token" value="{{{ csrf_token() }}}">
-	<div class="logo">
-		<i ng-show="Note.wait" class="fa fa-circle-o-notch fa-spin fa-3x fa-fw wait"></i>
-		@if( count($data['subnotes']) )
-			<span class="link-red" data-toggle="modal" data-target=".subfiles"><i class="fa fa-folder-open" aria-hidden="true"></i></span>
-		@endif
-		<a href="/">
-			<i class="icon-heronote"></i>			
-		</a>
-	</div>
+	<header class="red">
+		
+	</header>
 
 	@if( count($data['subnotes']) )
 		<div class="subfiles modal fade" ng-click="Note.close()" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">

@@ -3,6 +3,8 @@
 namespace heronote\Http\Controllers;
 
 use Request;
+use Session;
+use Redirect;
 use Auth;
 use SammyK\LaravelFacebookSdk\LaravelFacebookSdk as Facebook;
 
@@ -17,5 +19,11 @@ class RequestController extends Controller
   		$data['user'] = Auth::user();
 
   	return view('welcome')->withData( $data );
+  }
+
+  public function logout() {
+  	Auth::logout();
+    Session::flush();
+    return Redirect::to('/');
   }
 }

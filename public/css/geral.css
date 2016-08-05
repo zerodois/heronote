@@ -10,6 +10,13 @@
 a {
 	cursor: pointer
 }
+.ghost {
+	opacity: 0.5;
+}
+.logo:hover, .ghost:hover {
+	opacity: 1;
+	filter: alpha(opacity=50);
+}
 [class^="link-"], [class*=" link-"] {
 	color: #333;
 	cursor: pointer;
@@ -23,7 +30,7 @@ a {
 .green-text, .link-green:hover {
 	color: #1d9d74;
 }
-.white-text {
+.white-text, .link-white:hover {
 	color: white;
 }
 .black-text {

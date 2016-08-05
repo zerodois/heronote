@@ -14,6 +14,7 @@
 Route::get('/', 'RequestController@welcome');
 
 Route::get('/facebook/callback', 'FacebookController@login');
+Route::get('/logout', 'RequestController@logout');
 
 Route::post('/api/save', 'NoteController@save');
 
