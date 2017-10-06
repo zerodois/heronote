@@ -11,21 +11,19 @@ class NoteController extends Controller
 	
 	public function listen($route) {
 
-		// if( Auth::guest() )
-		// 	return view('note')->withData([
-		// 		'logged' => false,
-		// 		'note' => FileController::getNote($route),
-		// 		'subnotes' => FileController::getSubNotes($route),
-		// 		'uri'  => $route
-		// 	]);
+		if( Auth::guest() )
+			return view('note')->withData([
+				'logged' => false,
+				'note' => FileController::getNote($route),
+				'subnotes' => FileController::getSubNotes($route),
+				'uri'  => $route
+			]);
 
-		// $user = Auth::user();
+		$user = Auth::user();
 		return view('note')->withData([
 			'logged' => true,
-			// 'note' => FileController::getPrivateNote($user->email, $route),
-			'note' => FileController::getPrivateNote('felipelopesrita@gmail.com', $route),
-			// 'subnotes' => FileController::getPrivateSubNotes($user->email, $route),
-			'subnotes' => FileController::getPrivateSubNotes('felipelopesrita@gmail.com', $route),
+			'note' => FileController::getPrivateNote($user->email, $route),
+			'subnotes' => FileController::getPrivateSubNotes($user->email, $route),
 			'uri'  => $route
 		]);
 	}
@@ -34,10 +32,10 @@ class NoteController extends Controller
 		$path = Request::input('id');
 		$text = Request::input('text');
 
-		// if( Auth::guest() )
-		// 	FileController::saveNote( $path, $text );
-		// else
-			// FileController::savePrivateNote( Auth::user()->email, $path, $text );
+		if( Auth::guest() )
+			FileController::saveNote( $path, $text );
+		else
+			FileController::savePrivateNote( Auth::user()->email, $path, $text );
 			return FileController::savePrivateNote( 'felipelopesrita@gmail.com', $path, $text );
 	}
 }

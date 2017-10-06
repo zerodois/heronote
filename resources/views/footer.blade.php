@@ -23,7 +23,7 @@
 </style>
 <footer>
 	<section>
-		<span>2016, Heronote©</span>
+		<span>2017, Heronote©</span>
 		<span class="dev">Desenvolvido por <a href="https://github.com/felipelopesrita" class="link-red">mim <i class="icon-face"></i></a></span>
 	</section>
 </footer>
