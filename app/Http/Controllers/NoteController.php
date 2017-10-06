@@ -36,6 +36,5 @@ class NoteController extends Controller
 			FileController::saveNote( $path, $text );
 		else
 			FileController::savePrivateNote( Auth::user()->email, $path, $text );
-			return FileController::savePrivateNote( 'felipelopesrita@gmail.com', $path, $text );
 	}
 }
