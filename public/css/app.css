@@ -10,9 +10,8 @@
 	--primary: #333;
 	--navbar: 50px;
 	--margin: 20px;
-	--footer: 30px;
+	--footer: 20px;
 	--red: #CF3E43;
-
 	--mobile: 480px;
 }
 
@@ -28,10 +27,11 @@ html, body {
 	width: 90%;
 }
 .navbar-static-top {
-	-webkit-box-shadow: 0px 5px 10px 0px rgba(204,204,204,1);
-	-moz-box-shadow: 0px 5px 10px 0px rgba(204,204,204,1);
-	box-shadow: 0px 5px 10px 0px rgba(204,204,204,1);
+/* 	-webkit-box-shadow: 0px 5px 10px 0px rgba(204,204,204,1);
+	-moz-box-shadow: 0px 5px 10px 0px rgba(204,204,204,1); */
+	box-shadow: 0px 2px 5px 0px #ccc;
 	border: 0;
+	margin-bottom: 0;
 }
 .navbar-static-top .container {
 	height: var(--navbar);
@@ -49,9 +49,11 @@ html, body {
 	border: 0;
 	margin:auto;
 	width: 60%;
-	height: calc(100% - (var(--navbar) + var(--margin) + 10px + var(--footer)));
+	height: calc(100% + var(--margin) - (var(--navbar) + var(--margin)));
 	padding: 0 10px;
 	outline: none;
+	overflow-y: scroll;
+	padding-top: var(--margin);
 }
 .note-pdf {
 	display: inline-block;
