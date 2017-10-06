@@ -12,11 +12,23 @@ class CreateNotesTable extends Migration
      */
     public function up()
     {
+        /* Notes table */
         Schema::create('notes', function (Blueprint $table) {
-            $table->string('id')->primary();
+            $table->string('name');
+            $table->integer('user_id')->nullabe();
             $table->text('text');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->primary(['name', 'user_id']);
         });
+
+        // Schema::create('note_user', function (Blueprint $table) {
+        //     $table->integer('user_id');
+        //     $table->string('note_name');
+        //     $table->foreign('user_id')->references('id')->on('users');
+        //     $table->foreign('note_name')->references('name')->on('notes');
+        //     $table->primary(['note_name', 'user_id']);
+        // });
     }
 
     /**
@@ -26,6 +38,7 @@ class CreateNotesTable extends Migration
      */
     public function down()
     {
+        // Schema::drop('note_user');
         Schema::drop('notes');
     }
 }

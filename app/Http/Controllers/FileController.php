@@ -2,6 +2,8 @@
 
 namespace heronote\Http\Controllers;
 
+use heronote\Note;
+use heronote\User;
 use Storage;
 
 class FileController extends Controller
@@ -10,58 +12,50 @@ class FileController extends Controller
 	public static $ext 	= '.txt';
 
 	public static function getNote( $path ) {
-		$path .= FileController::$ext;
-		$disk  = Storage::disk( FileController::$disk );
-		if( !$disk->exists( $path ) )
+		$note = Note::show($path);
+		if( !$note )
 			return '';
-		return $disk->get( $path );
+		return $note->text;
 	}
 
 	public static function getPrivateNote( $email, $path ) {
-		$path = $email.'/'.$path.FileController::$ext;
-		$disk = Storage::disk( FileController::$disk );
-		if( !$disk->exists( $path ) )
+		$note = Note::show($path, $email);
+		if( !$note )
 			return '';
-		return $disk->get( $path );
+		return $note->text;
 	}
 
-	public static function saveNote( $path, $data ) {
-		$path .= FileController::$ext;
-		$disk  = Storage::disk( FileController::$disk );
-		$disk->put( $path, $data );
+	public static function saveNote( $path, $data, $user = 0 ) {
+		$arr = [ 'name' => $path, 'text' => $data, 'user_id' => $user ];
+		Note::updateOrCreate([ 'name' => $path, 'user_id' => $user ], $arr);
+		return new Note($arr);
 	}
 
 	public static function savePrivateNote( $email, $path, $data ) {
-		$path = $email.'/'.$path.FileController::$ext;
-		$disk = Storage::disk( FileController::$disk );
-		$disk->put( $path, $data );
+		$user = User::findByMail($email);
+		self::saveNote($path, $data, $user->id);
 	}
 
 	public static function getSubNotes( $path ) {
-		$disk  = Storage::disk( FileController::$disk );
-		$files = $disk->files( $path );
-		$cont  = count( $files );
-		$resp  = [];
-		for( $i=0; $i<$cont; $i++ ) {
-			$files[ $i ] 				= str_replace( FileController::$ext, '', $files[ $i ] );
-			$resp[ $i ]['uri']  = $files[ $i ];
-			$resp[ $i ]['name'] = str_replace( $path.'/', '', $files[ $i ] );
+		$sub = Note::subnotes($path);
+		$arr = [];
+		foreach ($sub as $note) {
+			$name = preg_split("/\//", $note->name);
+			$arr[] = [ 'uri' => $note->name, 'name' => $name[ count($name)-1 ] ];
 		}
-		return $resp;
+
+		return $arr;
 	}
 
 	public static function getPrivateSubNotes( $email, $path ) {
-		$path  = $email.'/'.$path;
-		$disk  = Storage::disk( FileController::$disk );
-		$files = $disk->files( $path );
-		$cont  = count( $files );
-		$resp  = [];
-		for( $i=0; $i<$cont; $i++ ) {
-			$files[ $i ] 				= str_replace( FileController::$ext, '', $files[ $i ] );
-			$resp[ $i ]['uri']	= str_replace( $email.'/', '', $files[ $i ] );
-			$resp[ $i ]['name'] = str_replace( $path.'/', '', $files[ $i ] );
+		$sub = Note::subnotes($path, $email);
+		$arr = [];
+		foreach ($sub as $note) {
+			$name = preg_split("/\//", $note->name);
+			$arr[] = [ 'uri' => $note->name, 'name' => $name[ count($name)-1 ] ];
 		}
-		return $resp;
+
+		return $arr;
 	}
 
 }

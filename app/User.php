@@ -35,4 +35,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public static function findByMail ($email) {
+        return self::where('email', $email)->first();
+    }
+
+    public function notes() {
+        return $this->belongsToMany('heronote\Note', 'note_user', 'user_id', 'note_name');
+    }
 }

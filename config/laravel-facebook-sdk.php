@@ -46,4 +46,4 @@ return [
      * an authentication attempt.
      */
     'default_redirect_uri' => '/facebook/callback',
-    ];
+];
