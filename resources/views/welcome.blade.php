@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/icomoon/css/style.css">
     <link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/geral.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         @import 'https://fonts.googleapis.com/css?family=Open+Sans';
         html, body {
@@ -61,6 +62,17 @@
             font-family: 'Open Sans', sans-serif;
             text-decoration: none;
         }
+
+
+        @media (max-width: 480px) {
+            span {
+                width: 85%;
+            }
+            .title {
+                font-size: 20vw;
+            }
+            .hidden-sm { display: none; }
+        }
     </style>
 </head>
 <body>
@@ -74,13 +86,12 @@
             @if( isset($data['url']) )
                 <div class="login">
                     <span> Para anotações privadas, faça login</span>
-                    <a href="{{ $data['url'] }}" class="link-red black-text">Login com Facebook <i class="fa fa-facebook-official" aria-hidden="true"></i>
-</a>
+                    <a href="{{ $data['url'] }}" class="primary-link black-text">Login com Facebook <i class="fa fa-facebook-official" aria-hidden="true"></i>
+                    </a>
                 </div>
             @endif
-
-            <span class="dica">
-            Dica: Você pode organizar as anotações em diretórios, como por exemplo<br> <code>{{{ url('/') }}}/escola/matematica</code> e <code>{{{ url('/') }}}/escola/portugues</code>
+            <span class="dica hidden-sm">
+                Dica: Você pode organizar as anotações em diretórios, como por exemplo<br> <code>{{{ url('/') }}}/escola/matematica</code> e <code>{{{ url('/') }}}/escola/portugues</code>
             </span>
         </div>
     </div>

@@ -24,6 +24,7 @@ angular.module('heronote')
               func();
   		      	$http.post('/api/save', data, { timeout: canceller.promise})
 			          .then(function(response){
+                  // resolve(true);
 									resolve(response.data);
           			});
             }

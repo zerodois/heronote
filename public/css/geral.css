@@ -4,8 +4,8 @@
 * @Last Modified by:   felipelopesrita
 * @Last Modified time: 2016-08-02 16:40:00
 */
-::-moz-selection { background-color: #CF3E43; color: white; }
-::selection { background-color: #CF3E43; color: white; }
+::-moz-selection { background-color: var(--primary); color: white; }
+::selection { background-color: var(--primary); color: white; }
 
 a {
 	cursor: pointer
@@ -24,8 +24,11 @@ a {
 [class^="link-"]:hover, [class*=" link-"]:hover {
 	text-decoration: none;
 }
-.red-text, .link-red:hover {
-	color: #CF3E43;
+.red-text, .red-link {
+	color: var(--red, #CF3E43);
+}
+.primary-text, .primary-link:hover {
+	color: var(--primary);
 }
 .green-text, .link-green:hover {
 	color: #1d9d74;
@@ -39,8 +42,8 @@ a {
 .black {
 	background-color: #333;
 }
-.red {
-	background-color: #CF3E43;
+.primary {
+	background-color: var(--primary);
 }
 .green {
 	background-color: #1d9d74;

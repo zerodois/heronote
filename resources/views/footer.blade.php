@@ -5,6 +5,7 @@
 		position: absolute;
 		bottom: 0;
 		left: 0;
+		height: var(--footer);
 		padding: 5px 0;
 	}
 	footer section {
@@ -24,6 +25,6 @@
 <footer>
 	<section>
 		<span>2017, Heronote©</span>
-		<span class="dev">Desenvolvido por <a href="https://github.com/felipelopesrita" class="link-red">mim <i class="icon-face"></i></a></span>
+		<span class="dev">Desenvolvido por <a href="https://github.com/felipelopesrita" class="primary-link">mim <i class="icon-face"></i></a></span>
 	</section>
 </footer>
